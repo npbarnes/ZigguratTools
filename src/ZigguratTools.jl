@@ -189,8 +189,9 @@ function sampleziggurat(zs::ZigguratSampler)
         l = rand(1:N)
         if l == 1 # Baselayer
             x0 = zs.A/zs.y[1]
-            if x0 < zs.x[1]
-                return x0
+            x = x0*rand()
+            if x < zs.x[1]
+                return x
             else
                 return tailsample(zs)
             end
